@@ -16,9 +16,6 @@ const headers = {
 let chart;
 const colorMap = {};
 
-// async function intilaize_votes(){
-// };
-
 const primaryColors = [
     'rgba(255, 99, 132, 0.6)',   // red
     'rgba(255, 159, 64, 0.6)',   // orange
@@ -52,12 +49,14 @@ function shorten_name(project_name){
 function count_votes(responses, vote_count){
     for (let i = 0; i < responses.length; i++) {
         let raw  = responses[i].questions[0].value;
-        let list = raw
+        if (raw){
+        var list = raw
           .split(/\s*,\s*/)            // split on commas
           .map(s => s.replace(/^\[|\]$/g, ""));  // strip brackets
         
         for (let project_name of list) {
           vote_count[project_name] = (vote_count[project_name] || 0) + 1;
+        }
         }
     };
     return vote_count;
@@ -79,8 +78,7 @@ async function fetchSubmissions() {
     const qData = await qRes.json();
 
     qData.questions[0].options.forEach(opt => {
-        let val = opt.value
-        vote_count[val] = initializer_value;
+        vote_count[shorten_name(opt.value)] = initializer_value;
     });
     console.log("Intial Lables: ", vote_count);
   
@@ -214,6 +212,7 @@ function updateChart(vote_count) {
     const values = sortedEntries.map(entry => entry[1]);
     const backgroundColors = labels.map((label, index) => getColorForLabel(label, index));
     const canvas = document.getElementById('myChart');
+    
     if (!chart) {
         const ctx = document.getElementById('myChart').getContext('2d');
         chart = new Chart(ctx, {
