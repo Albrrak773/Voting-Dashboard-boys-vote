@@ -1,19 +1,19 @@
 {
     "submissions": [
         {
-            "submissionId": "66fe356d-ed60-4d22-9ecb-53e4778e3ff5",
-            "submissionTime": "2025-05-06T23:55:25.329Z",
-            "lastUpdatedAt": "2025-05-06T23:55:25.329Z",
-            "startedAt": "2025-05-06T23:55:25.329Z",
+            "submissionId": "eabdb383-4629-4b8d-b868-32566aa439c8",
+            "submissionTime": "2025-05-06T23:56:54.508Z",
+            "lastUpdatedAt": "2025-05-06T23:56:54.508Z",
+            "startedAt": "2025-05-06T23:56:54.508Z",
             "questions": [
                 {
                     "id": "wQgG",
                     "name": "المشاريع",
                     "type": "ImagePicker",
                     "value": [
-                        "[3] TRUSTHEALTH",
-                        "[12] Heart Disease prediction system",
-                        "[13] Generative Arabic Calligraphy Using AI (Medad)"
+                        "[29] SmartChef",
+                        "[1] Traffic Congestion Detection Using Deep Learning",
+                        "[22] Smart Security drone"
                     ]
                 }
             ],
